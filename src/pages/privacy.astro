@@ -1,0 +1,116 @@
+---
+import Base from '../layouts/Base.astro';
+
+/**
+ * Written from docs/PRIVACY-ARCHITECTURE.md in the app repo, which describes
+ * what the code actually does. Not from intentions.
+ *
+ * The old Nudgy site's privacy page said the product "runs entirely on your Mac"
+ * and that nothing left the device. That was true of a local screenshot tool and
+ * became false the moment anything synced. This page must never drift the same
+ * way — re-read it whenever the app starts storing something new. That's a
+ * standing item in the repo's session wrap-up checklist.
+ */
+const updated = '25 September 2026';
+---
+
+<Base
+  title="Privacy — Nudgy"
+  description="What Nudgy stores, what it deliberately doesn't, and what we can and can't see."
+  path="/privacy"
+>
+  <main class="prose">
+    <h1>Privacy</h1>
+    <p class="faint">Last updated {updated}</p>
+
+    <p>
+      Nudgy holds private notes about people who never signed up for it, can’t log in, and mostly don’t know
+      it exists. That shapes every decision below, and it’s why this page tries to be specific rather than
+      reassuring.
+    </p>
+
+    <h2>What Nudgy stores</h2>
+    <ul>
+      <li>Your email address, name, timezone, and reminder preferences.</li>
+      <li>The people you add: names, how you know them, and any contact details you type in.</li>
+      <li>Notes you write, and things you’ve noted that someone needs.</li>
+      <li>That you reached out to someone, when, and by what means.</li>
+      <li>Dates you ask us to remember, like birthdays.</li>
+    </ul>
+
+    <h2>What Nudgy deliberately doesn’t do</h2>
+    <p>Each of these is a decision, not a feature we haven’t got to:</p>
+    <ul>
+      <li>It does not import your address book or your Google Contacts. You add people one at a time.</li>
+      <li>It does not read your email or your calendar.</li>
+      <li>It does not store photos of anyone.</li>
+      <li>It does not use your location.</li>
+      <li>It does not send your notes to an AI model. There is no AI in Nudgy.</li>
+      <li>It has no analytics, no tracking, no session recording, and no third-party SDKs.</li>
+      <li>It does not sell or share your information. There is nobody to sell it to.</li>
+    </ul>
+
+    <h2>Who can see your data</h2>
+    <p>
+      Your data is isolated at the database level, not just in the app. Every record is tied to your account,
+      and the database itself refuses to return another user’s rows — so a bug in the app can’t leak them.
+      That rule is covered by automated tests that run on every change.
+    </p>
+    <p>
+      <strong>What that does not mean:</strong> your notes are stored in a way that we, as the operator of the
+      service, could technically read. They’re encrypted on disk, which protects against someone physically
+      stealing a drive — it does not make them invisible to us. We don’t read them, and nothing in the product
+      does anything with them. But we would rather say that plainly than imply a guarantee we haven’t built.
+    </p>
+    <p>
+      End-to-end encryption, where even we couldn’t read them, is something we want to add. When it exists,
+      this page will say so. Until then, it doesn’t.
+    </p>
+
+    <h2>Notifications</h2>
+    <p>
+      Reminders are scheduled on your own device and never sent from a server. A contact’s name never travels
+      through Apple’s or Google’s systems — and notifications never contain anyone’s name anyway, since lock
+      screens are readable by whoever’s holding the phone. You’ll see “3 people to reach out to”, never a name.
+    </p>
+
+    <h2>Your rights</h2>
+    <ul>
+      <li><strong>Export.</strong> Settings → Export everything. You get a JSON file with all of it.</li>
+      <li>
+        <strong>Delete.</strong> Settings → Delete my account. This permanently removes every person, note,
+        and interaction. It can’t be undone, and we can’t recover it for you.
+      </li>
+      <li>Deleted records are purged within 30 days, including from backups.</li>
+    </ul>
+
+    <h2>If you’re in someone’s Nudgy</h2>
+    <p>
+      Someone may have written notes about you without telling you. You have rights over that information even
+      though you never signed up. Email <a href="mailto:privacy@pragmaticlabs.dev">privacy@pragmaticlabs.dev</a>
+      and we’ll tell you what we can and remove it on request.
+    </p>
+
+    <h2>Who else is involved</h2>
+    <p>Nudgy runs on services operated by other companies:</p>
+    <ul>
+      <li><strong>Supabase</strong> — the database and sign-in.</li>
+      <li><strong>Cloudflare</strong> — hosting.</li>
+      <li><strong>Expo</strong> — building and distributing the apps.</li>
+      <li><strong>Apple and Google</strong> — app distribution.</li>
+      <li>An email provider, to send your sign-in codes.</li>
+    </ul>
+    <p>This list changes only when the product does, and this page changes with it.</p>
+
+    <h2>Contact</h2>
+    <p>
+      Nudgy is made by Pragmatic Labs. Questions, or anything that looks wrong here:
+      <a href="mailto:privacy@pragmaticlabs.dev">privacy@pragmaticlabs.dev</a>.
+    </p>
+
+    <footer>
+      <a href="/">Nudgy</a>
+      <a href="/terms">Terms</a>
+    </footer>
+  </main>
+</Base>

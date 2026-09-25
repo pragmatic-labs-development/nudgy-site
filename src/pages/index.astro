@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+
+/**
+ * One page. Deliberately.
+ *
+ * There is no product to sign up for yet, so this is a waitlist and a statement
+ * of intent — not a pricing table with nothing behind it, which is what the old
+ * Nudgy site shipped (three tiers, an annual toggle, and both paid CTAs pointing
+ * at "#").
+ */
+---
+
+<Base
+  title="Nudgy — show up for the people you care about"
+  description="A private app for remembering what matters to the people in your life, and doing something about it."
+>
+  <main>
+    <h1>Your relationships are worth more than your reach.</h1>
+
+    <p class="lede">
+      Nudgy is a quiet, private place to remember what matters to the people in your life — and to do
+      something about it before another year goes by.
+    </p>
+
+    <ul class="points">
+      <li>
+        <h3>It asks a better question</h3>
+        <p>
+          Not “who haven’t you contacted lately”, but “what could you do for this person?” Note what someone
+          needs when you hear it. Nudgy brings it back when it’s useful.
+        </p>
+      </li>
+      <li>
+        <h3>The bar is low on purpose</h3>
+        <p>
+          Sharing an article counts. So does a meme. Showing up beats writing an essay, and a day you miss
+          never breaks anything.
+        </p>
+      </li>
+      <li>
+        <h3>It stays private</h3>
+        <p>
+          Your notes are about people who never signed up for this. So Nudgy asks for as little as possible:
+          no reading your inbox, no scraping your contacts, no AI reading what you wrote about your friends.
+        </p>
+      </li>
+    </ul>
+
+    <div class="note">
+      <p><strong>Not ready yet.</strong></p>
+      <p class="muted">
+        Nudgy is being built in the open by one person. There’s no signup to hand you today — but if you want
+        to hear when there is, say hello and I’ll let you know.
+      </p>
+    </div>
+
+    <a class="cta" href="mailto:hello@pragmaticlabs.dev?subject=Nudgy">Tell me when it’s ready</a>
+
+    <footer>
+      <span>Nudgy — <a href="https://pragmaticlabs.dev">Pragmatic Labs</a></span>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </footer>
+  </main>
+</Base>

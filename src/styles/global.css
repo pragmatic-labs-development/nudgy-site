@@ -1,0 +1,167 @@
+/*
+ * Tokens mirror src/theme/index.ts in the app repo, so the site and the product
+ * share one vocabulary. If you change a colour here, change it there.
+ *
+ * Plain CSS rather than Tailwind: this is one page and a couple of legal
+ * documents. A build-step dependency to avoid writing 200 lines of CSS would be
+ * a bad trade.
+ */
+
+:root {
+  --bg: #ffffff;
+  --surface: #f7f7f5;
+  --border: #e4e4e0;
+
+  --text: #1a1a18;
+  --text-muted: #6b6b66;
+  --text-faint: #9a9a94;
+
+  --accent: #c2410c;
+  --accent-hover: #9a3412;
+  --accent-soft: #fff1e9;
+
+  --measure: 34rem;
+  --radius: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem 4rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+.lede {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.faint {
+  color: var(--text-faint);
+  font-size: 0.9rem;
+}
+
+.cta {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius);
+  /* 44px minimum touch target, same rule as the app. */
+  min-height: 44px;
+  margin-top: 2rem;
+}
+
+.cta:hover {
+  background: var(--accent-hover);
+  color: #fff;
+}
+
+.points {
+  list-style: none;
+  margin: 2.5rem 0 0;
+  display: grid;
+  gap: 1.75rem;
+}
+
+.points h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.points p {
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.note {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.note p:last-child {
+  margin-bottom: 0;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-faint);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+}
+
+/* Legal pages read better a touch narrower and smaller. */
+.prose {
+  font-size: 16px;
+}
+
+.prose h2 {
+  margin-top: 2rem;
+}
+
+.prose ul {
+  margin: 0 0 1rem 1.25rem;
+  color: var(--text-muted);
+}
