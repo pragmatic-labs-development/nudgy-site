@@ -15,7 +15,10 @@ import sitemap from '@astrojs/sitemap';
  * expensive last time.
  */
 export default defineConfig({
-  site: process.env.SITE_URL ?? 'https://pragmatic-labs-development.github.io/nudgy-site',
+  // `||`, not `??`. GitHub Actions passes an unset repository variable as an
+  // EMPTY STRING, which is not nullish — so `??` happily hands Astro `site: ''`
+  // and the build dies with "Invalid URL". This exact bug failed the first CI run.
+  site: process.env.SITE_URL || 'https://pragmatic-labs-development.github.io/nudgy-site',
   output: 'static',
   integrations: [sitemap()],
   build: {
